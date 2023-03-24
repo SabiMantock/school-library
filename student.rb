@@ -12,8 +12,3 @@ class Student < Person
     '¯\\_(ツ)_/¯'
   end
 end
-
-student = Student.new(16, 'Social', 'Alice')
-puts student.name
-puts student.age
-puts student.classroom

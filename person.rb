@@ -1,6 +1,6 @@
 class Person
   attr_accessor :name, :age
-  attr_writer :id
+  attr_reader :id
 
   def initialize(age, name = 'Unknown', parent_permission: true)
     @id = Random.rand(1..1000)
@@ -19,7 +19,3 @@ class Person
     @age >= 18
   end
 end
-person = Person.new(25, 'Alice')
-
-puts person.name
-puts person.age
