@@ -17,8 +17,8 @@ class Menu
       7 => 'Exit'
     }
 
-    list.each do |index, string|
-      puts "{index} - {string}"
+    list.each do |_index, _string|
+      puts '{index} - {string}'
     end
     gets.chomp.to_i
   end
