@@ -7,11 +7,11 @@ class LibraryApp
     @menu = Menu.new(@app)
   end
 
-  # def run
-  #   puts 'Welcome to the OOP School Library App'
-  #   puts
-  #   @menu.run
-  # end
+  def run
+    puts 'Welcome to the OOP School Library App'
+    puts
+    @menu.run
+  end
 end
 
 LibraryApp.new.run

@@ -18,34 +18,34 @@ class Menu
     }
 
     list.each do |index, string|
-      puts "#{index} - #{string}"
+      puts "{index} - {string}"
     end
     gets.chomp.to_i
   end
 
-  # def run
-  #   loop do
-  #     case display_menu
-  #     when 1
-  #       @app.list_books
-  #     when 2
-  #       @app.list_people
-  #     when 3
-  #       @app.create_person
-  #     when 4
-  #       @app.create_book
-  #     when 5
-  #       @app.create_rental
-  #     when 6
-  #       puts 'Enter person\'s id'
-  #       person_id = gets.chomp.to_i
-  #       @app.list_all_rentals(person_id)
-  #     when 7
-  #       puts 'Thank you for using this app!'
-  #       exit
-  #     else
-  #       puts 'Please choose a number between 1 and 7'
-  #     end
-  #   end
-  # end
+  def run
+    loop do
+      case display_menu
+      when 1
+        @app.list_books
+      when 2
+        @app.list_people
+      when 3
+        @app.create_person
+      when 4
+        @app.create_book
+      when 5
+        @app.create_rental
+      when 6
+        puts 'Enter person\'s id'
+        person_id = gets.chomp.to_i
+        @app.list_all_rentals(person_id)
+      when 7
+        puts 'Thank you for using this app!'
+        exit
+      else
+        puts 'Please choose a number between 1 and 7'
+      end
+    end
+  end
 end
