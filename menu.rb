@@ -47,8 +47,8 @@ class Menu
         @app.list_all_rentals(person_id)
       when 7
         puts 'Thank you for using this app!'
-         create_dir
-         @app.save_files
+        create_dir
+        @app.save_files
         exit
       else
         puts 'Please choose a number between 1 and 7'

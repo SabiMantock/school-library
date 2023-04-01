@@ -152,25 +152,25 @@ class App
     end
   end
 
-   def read_files
-     instance_variables.each do |var|
-       file_name = var.to_s.chomp('_list').delete('@')
+  def read_files
+    instance_variables.each do |var|
+      file_name = var.to_s.chomp('_list').delete('@')
 
-       if File.exist?("./data/{file_name}.json") && !File.empty?("./data/{file_name}.json")
-         ary = JSON.parse(File.read("./data/{file_name}.json"))
-         case file_name
-         when 'books'
-           read_book(ary)
-         when 'people'
-           read_people(ary)
-         else
-           read_rental(ary, File.read('./data/books.json'), File.read('./data/people.json'))
-         end
-       else
-         File.write("./data/{file_name}.json", '[]')
-       end
-     end
-   end
+      if File.exist?("./data/{file_name}.json") && !File.empty?("./data/{file_name}.json")
+        ary = JSON.parse(File.read("./data/{file_name}.json"))
+        case file_name
+        when 'books'
+          read_book(ary)
+        when 'people'
+          read_people(ary)
+        else
+          read_rental(ary, File.read('./data/books.json'), File.read('./data/people.json'))
+        end
+      else
+        File.write("./data/{file_name}.json", '[]')
+      end
+    end
+  end
 
   private
 
