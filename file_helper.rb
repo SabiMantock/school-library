@@ -7,7 +7,7 @@ def read_book(file)
   file.each do |el|
     book_title = el['value']['title']
     book_author = el['value']['author']
-    puts "Book Title: #{book_title} Book Author: #{book_author}"
+    puts "Book Title: {book_title} Book Author: {book_author}"
     create_book
   end
 end
@@ -24,32 +24,32 @@ def read_people(file)
       student_age = el['value']['age']
       student_name = el['value']['name']
       has_permission = el['value']['has_permission']
-      puts "Classroom: #{student_classroom} Student Age: #{student_age} Student Name #{student_name}"
+      puts "Classroom: {student_classroom} Student Age: {student_age} Student Name {student_name}"
       create_student
     when 'Teacher'
       teacher_specialization = el['value']['specialization']
       teacher_age = el['value']['age']
       teacher_name = el['value']['name']
-      puts "Teacher Specialization: #{teacher_specialization} Age: #{teacher_age} Teacher's Name #{teacher_name}"
+      puts "Teacher Specialization: {teacher_specialization} Age: {teacher_age} Teacher's Name {teacher_name}"
       create_teacher
     end
   end
 end
 
-# def read_rental(ary, book_file, people_file)
-#   puts ''
-#   puts 'List all rentals for a given person id'
-#   puts ''
+ def read_rental(ary, book_file, people_file)
+   puts ''
+   puts 'List all rentals for a given person id'
+   puts ''
 
-#   ary.each do |el|
-#     date_of_rent = el['value']['date']
-#     rented_book = el['value']['book']
-#     renter = el['value']['person']
-#     book = find_book_idx(rented_book, book_file)
-#     person = find_person_idx(renter, people_file)
-#     puts "Date of Rent: #{date_of_rent} Book: #{book} Person: #{person}"
-#     create_rental
-#   end
+   ary.each do |el|
+     date_of_rent = el['value']['date']
+     rented_book = el['value']['book']
+     renter = el['value']['person']
+     book = find_book_idx(rented_book, book_file)
+     person = find_person_idx(renter, people_file)
+     puts "Date of Rent: {date_of_rent} Book: {book} Person: {person}"
+     create_rental
+   end
 end
 
 def find_book_idx(ref, path_file)
