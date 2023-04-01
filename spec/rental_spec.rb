@@ -5,7 +5,7 @@ require_relative '../person'
 describe Rental do
   context 'Test Rental' do
     let(:book) { Book.new('Harry Potter', 'J.K Rowling') }
-    let(:person) { Person.new('Jack Burn', 18, parent_permission:true) }
+    let(:person) { Person.new('Jack Burn', 18, parent_permission: true) }
     let(:rental) { Rental.new('2023-01-01', book, person) }
 
     it 'Correct rental date' do
