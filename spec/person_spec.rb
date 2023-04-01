@@ -1,9 +1,10 @@
 require_relative '../person'
+require_relative '../rental'
 
 describe Person do
   context 'Create a person' do
     it 'Has a name and age' do
-      person = Person.new(25, 'Bill')
+      person = Person.new(28, 'Bill')
       expect(person.name).to eq('Bill')
       expect(person.age).to eq(28)
     end
@@ -37,8 +38,9 @@ describe Person do
       person = Person.new(28)
       book = double('book')
       rental = double('rental')
+        date = '2023-07-07'
       allow(Rental).to receive(:new).and_return(rental)
-      person.add_rental('2023-07-07', book)
+      person.add_rental(rental)
       expect(person.rentals).to include(rental)
     end
   end

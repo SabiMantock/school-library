@@ -8,7 +8,6 @@ def read_book(file)
     book_title = el['value']['title']
     book_author = el['value']['author']
     puts "Book Title: #{book_title} Book Author: #{book_author}"
-    create_book
   end
 end
 
@@ -23,8 +22,8 @@ def read_people(file)
       student_classroom = el['value']['classroom']
       student_age = el['value']['age']
       student_name = el['value']['name']
-      has_permission = el['value']['has_permission']
-      puts "Classroom: #{student_classroom} Student Age: #{student_age} Student Name: #{student_name} Permission: #{has_permission}"
+      parent_permission = el['value']['parent_permission']
+      puts "Classroom: #{student_classroom} Student Age: #{student_age} Student Name: #{student_name} Permission: #{parent_permission}"
     when 'Teacher'
       teacher_specialization = el['value']['specialization']
       teacher_age = el['value']['age']
@@ -46,7 +45,6 @@ def read_rental(ary, book_file, people_file)
     book = find_book_idx(rented_book, book_file)
     person = find_person_idx(renter, people_file)
     puts "Date of Rent: #{date_of_rent} Book: #{book} Person: #{person}"
-    create_rental
   end
 end
 

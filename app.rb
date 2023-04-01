@@ -68,7 +68,7 @@ class App
     classroom = gets.chomp
     puts 'Do you have your parents\' permission? [Y/N]'
     parent_permission = gets.chomp
-    student = Student.new(name, age, classroom, parent_permission: parent_permission)
+    student = Student.new(age, name, classroom, parent_permission: parent_permission)
     @people << student
     puts 'Student successfully created'
   end
@@ -80,7 +80,7 @@ class App
     age = gets.chomp.to_i
     puts 'Enter your specialization'
     specialization = gets.chomp
-    teacher = Teacher.new(name, age, specialization)
+    teacher = Teacher.new(age, name, specialization)
     @people << teacher
     puts 'Teacher Successfuly created'
   end
