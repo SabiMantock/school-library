@@ -18,7 +18,7 @@ class Menu
     }
 
     list.each do |_index, _string|
-      puts '{index} - {string}'
+      puts "#{_index} - #{_string}"
     end
     gets.chomp.to_i
   end
