@@ -4,7 +4,7 @@ class Person < Nameable
   attr_accessor :name, :age, :rentals
   attr_reader :id
 
-  def initialize(name, age, parent_permission: true)
+  def initialize(name, age, parent_permission = 'true')
     super()
     @id = Random.rand(1..1000)
     @name = name
@@ -22,7 +22,7 @@ class Person < Nameable
   end
 
   def add_rental(rental)
-    @rentals << rental
+    @rentals.push(rental)
   end
 
   private
