@@ -5,6 +5,8 @@ require_relative './student'
 require_relative './teacher'
 require_relative './classroom'
 require_relative './nameable'
+require_relative './file_helper'
+require 'json'
 
 class App
   def initialize
@@ -136,5 +138,47 @@ class App
         puts "#{rental.book.title} by #{rental.book.author}, rented on #{rental.date}"
       end
     end
+  end
+
+  def save_files
+    instance_variables.each do |var|
+      file_name = var.to_s.delete('@')
+      ary = []
+      instance_variable_get(var).each do |obj|
+        hash = { ref: obj, value: to_hash(obj) }
+        ary << hash
+      end
+      File.write("./data/#{file_name}.json", JSON.generate(ary))
+    end
+  end
+
+  def read_files
+    instance_variables.each do |var|
+      file_name = var.to_s.delete('@')
+
+      if File.exist?("./data/#{file_name}.json") && !File.empty?("./data/#{file_name}.json")
+        ary = JSON.parse(File.read("./data/#{file_name}.json"))
+        case file_name
+        when 'books'
+          read_book(ary)
+        when 'people'
+          read_people(ary)
+        else
+          read_rental(ary, File.read('./data/books.json'), File.read('./data/people.json'))
+        end
+      else
+        File.write("./data/#{file_name}.json", '[]')
+      end
+    end
+  end
+
+  private
+
+  def to_hash(obj)
+    hash = {}
+    obj.instance_variables.each do |var|
+      hash[var.to_s.delete('@')] = obj.instance_variable_get(var)
+    end
+    hash
   end
 end

@@ -32,7 +32,6 @@ OOP School Library is a tool to record what books are in the library and who bor
 
 ## 🛠 Built With <a name="built-with"></a>
 
-
 ### Tech Stack <a name="tech-stack"></a>
 
 - Ruby
@@ -85,6 +84,12 @@ Install this project with:
 - Twitter: [@iamsabimantock](https://twitter.com/iamsabimantock)
 - LinkedIn: [Sabi Mantock](https://linkedin.com/in/sabi-mantock)
 
+👤 **Billal Chami**
+
+- GitHub: [@githubhandle](https://github.com/bill7pearl)
+- Twitter: [@twitterhandle](https://twitter.com/BillChami)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/billal-chami-263497194/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -96,6 +101,7 @@ Install this project with:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
+
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
