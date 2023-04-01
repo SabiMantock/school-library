@@ -22,7 +22,7 @@ class App
     author = gets.chomp
     book = Book.new(title, author)
     @books << book
-    puts "Created {book.title} by {book.author}"
+    puts "Created #{book.title} by #{book.author}"
   end
 
   def list_books
@@ -30,7 +30,7 @@ class App
       puts 'There are no books available'
     else
       @books.each do |book|
-        puts "Title: '{book.title}', Author: '{book.author}'"
+        puts "Title: '#{book.title}', Author: '#{book.author}'"
       end
     end
   end
@@ -40,7 +40,7 @@ class App
       puts 'There\'s no one here ATM!'
     else
       @people.each do |person|
-        puts "Name: {person.name} Age: {person.age} ID: {person.id}"
+        puts "Name: #{person.name} Age: #{person.age} ID: #{person.id}"
       end
     end
   end
@@ -104,7 +104,7 @@ class App
   def select_book
     puts 'Select a book by its number:'
     @books.each_with_index do |book, index|
-      puts "Number: {index + 1} - Title: {book.title}, Author: {book.author}"
+      puts "Number: #{index + 1} - Title: #{book.title}, Author: #{book.author}"
     end
     book_id_input = gets.chomp.to_i
     return nil if book_id_input < 1 || book_id_input > @books.size
@@ -115,7 +115,7 @@ class App
   def select_person
     puts 'Select the person renting the book by their number:'
     @people.each_with_index do |person, index|
-      puts "Number: {index + 1} - Role: {person.class.name}, Name: {person.name}, ID: {person.id}"
+      puts "Number: #{index + 1} - Role: #{person.class.name}, Name: #{person.name}, ID: #{person.id}"
     end
     person_id_input = gets.chomp.to_i
 
@@ -135,29 +135,29 @@ class App
       puts 'No rentals found for the given person ID!'
     else
       rentals.each do |rental|
-        puts "{rental.book.title} by {rental.book.author}, rented on {rental.date}"
+        puts "#{rental.book.title} by #{rental.book.author}, rented on #{rental.date}"
       end
     end
   end
 
   def save_files
     instance_variables.each do |var|
-      file_name = var.to_s.chomp('_list').delete('@')
+      file_name = var.to_s.delete('@')
       ary = []
       instance_variable_get(var).each do |obj|
         hash = { ref: obj, value: to_hash(obj) }
         ary << hash
       end
-      File.write("./data/{file_name}.json", JSON.generate(ary))
+      File.write("./data/#{file_name}.json", JSON.generate(ary))
     end
   end
 
   def read_files
     instance_variables.each do |var|
-      file_name = var.to_s.chomp('_list').delete('@')
+      file_name = var.to_s.delete('@')
 
-      if File.exist?("./data/{file_name}.json") && !File.empty?("./data/{file_name}.json")
-        ary = JSON.parse(File.read("./data/{file_name}.json"))
+      if File.exist?("./data/#{file_name}.json") && !File.empty?("./data/#{file_name}.json")
+        ary = JSON.parse(File.read("./data/#{file_name}.json"))
         case file_name
         when 'books'
           read_book(ary)
@@ -167,7 +167,7 @@ class App
           read_rental(ary, File.read('./data/books.json'), File.read('./data/people.json'))
         end
       else
-        File.write("./data/{file_name}.json", '[]')
+        File.write("./data/#{file_name}.json", '[]')
       end
     end
   end

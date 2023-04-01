@@ -1,1 +1,1 @@
-[{"ref":"#<Student:0x00007f5ec5211968>","value":{"id":34,"name":"","age":"","parent_permission":{"parent_permission":""},"rentals":[],"classroom":0,"type":"Student"}},{"ref":"#<Teacher:0x00007f5ec52115a8>","value":{"id":312,"name":"","age":0,"parent_permission":"true","rentals":[],"specialization":"","type":"Teacher"}}]
+[]
