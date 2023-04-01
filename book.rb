@@ -8,6 +8,6 @@ class Book
   end
 
   def add_rental(rental)
-    @rentals << rental
+    @rentals.push(rental)
   end
 end

@@ -1,8 +1,13 @@
 require './app'
+require_relative './create_file_dir'
 
 class Menu
   def initialize(app)
     @app = app
+    Dir.exist?('./data') ? app.read_files : nil
+    loop do
+      run
+    end
   end
 
   def display_menu
@@ -18,7 +23,7 @@ class Menu
     }
 
     list.each do |_index, _string|
-      puts '{index} - {string}'
+      puts "#{_index} - #{_string}"
     end
     gets.chomp.to_i
   end
@@ -42,6 +47,8 @@ class Menu
         @app.list_all_rentals(person_id)
       when 7
         puts 'Thank you for using this app!'
+        # create_dir
+        # @app.save_files
         exit
       else
         puts 'Please choose a number between 1 and 7'
